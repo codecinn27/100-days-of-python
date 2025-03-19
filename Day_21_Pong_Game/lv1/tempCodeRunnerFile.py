@@ -1,0 +1,1 @@
+p1 = Player(p1_position)
