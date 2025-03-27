@@ -20,9 +20,10 @@ to_learn_state = []
 while guess_correct<len(full_data):
     answer_state = screen.textinput(title=f"{guess_correct}/50 States Correct",prompt="What's another state name? ")
     if answer_state == "exit" or answer_state == "Exit":
-        for index, rows in full_data.iterrows():
-            if rows["state"] not in correct_guess_list:
-                to_learn_state.append(rows["state"])
+        # for index, rows in full_data.iterrows():
+        #     if rows["state"] not in correct_guess_list:
+        #         to_learn_state.append(rows["state"])
+        to_learn_state= [y["state"] for x,y in full_data.iterrows() if y["state"] not in correct_guess_list]
         new_data = pd.DataFrame(to_learn_state)
         new_data.to_csv("to_learn_state.csv")
         break
